@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Register</h1>
+<div class="col-md-6 offset-md-3 p-3">
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        {%if form.errors%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Your form has Errors
+            {%for field in form%}
+            {%if field.errors%}
+            {{field.errors}}
+            {%endif%}
+            {%endfor%}
+        </div>
+        {%endif%}
+        {{form.as_p}}
+        <div class="d-flex mb-3 justify-content-center">
+            <button type="submit" class="btn btn-primary justify-center">
+                Register
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
