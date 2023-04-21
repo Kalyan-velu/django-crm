@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container p-4">
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{cust_record.first_name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Name: </strong> {{cust_record}}</li>
+      <li class="list-group-item">
+        <strong>Email: </strong> {{cust_record.email}}
+      </li>
+      <li class="list-group-item">
+        <strong>Phone: </strong> {{cust_record.phone}}
+      </li>
+    </ul>
+    <div class="d-flex mt-2 mb-2 align-items-center justify-content-around">
+      <a href="{% url 'delete' cust_record.id%}" class="btn btn-danger h-25"
+        >Delete Record</a
+      >
+      <a href="{% url 'update' cust_record.id%}" class="btn btn-secondary h-25"
+        >Update Record</a
+      >
+    </div>
+  </div>
+</div>
+
+{%endblock%}
